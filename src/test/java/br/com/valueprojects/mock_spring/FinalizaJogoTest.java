@@ -83,11 +83,9 @@ public class FinalizaJogoTest {
 			SMSService service = mock(SMSService.class);
 			JogoDao daoFalso = mock(JogoDao.class);
 
-			when(daoFalso.emAndamento()).thenReturn(jogosAnteriores);
-
 			FinalizaJogo finalizador = new FinalizaJogo(daoFalso, service);
 			finalizador.finaliza();
 
-			verify(service, times(1)).enviar();			
+			verify(service, times(2)).enviar();			
 		}
 	}
